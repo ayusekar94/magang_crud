@@ -18,3 +18,4 @@ Route::redirect('/', '/auth');
 Route::resource('/auth', AutentikasiController::class);
 Route::get('/kegiatan', 'UserController@index')->name('user');
 Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
+Route::post('/register', [AutentikasiController::class, 'register'])->name('register');

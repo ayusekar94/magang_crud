@@ -49,6 +49,11 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="username">NIP</label>
                                             <input type="text" class="form-control" name="NIP" placeholder="Enter username">
+                                            @error('NIP')
+                                            <code>
+                                                {{ $message }}
+                                            </code>
+                                            @enderror
                                         </div>
                 
                                         <div class="mb-3">
@@ -57,6 +62,11 @@
                                             </div> --}}
                                             <label class="form-label" for="userpassword">Password</label>
                                             <input type="password" class="form-control" name="password" placeholder="Enter password">
+                                            @error('password')
+                                            <code>
+                                                {{ $message }}
+                                            </code>
+                                            @enderror
                                         </div>
 
                                         <div class="mt-3 text-end">

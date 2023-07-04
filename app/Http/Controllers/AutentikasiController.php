@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Karyawan;
 
 class AutentikasiController extends Controller
 {
@@ -24,6 +25,11 @@ class AutentikasiController extends Controller
 
     // Auth
     public function store(Request $request){
+        $validatedData=$request->validate([
+            'NIP' => 'required',
+            'password' => 'required'
+        ]);
+
         //jika username ada
         $user = DB::table('karyawans')->where('NIP', $request->NIP)->first();
 
@@ -45,6 +51,21 @@ class AutentikasiController extends Controller
         
         //jika username tidak ada
         return redirect('/a')->with('error_username', 'Username Tidak Ditemukan');
+    }
+
+    public function register(Request $request){
+        $validatedData=$request->validate([
+            'NIP' => 'required',
+            'nama' => 'required|min:5',
+            'password' => 'required|min:5|confirmed',
+            'divisi' => 'required'
+        ]);
+        $validatedData['password']=bcrypt($validatedData['password']);
+
+        Karyawan::create($validatedData); //untuk menyimpan data
+
+        // toast('Registration has been successful','success');
+        return redirect()->intended('/sukses');
     }
 
     // Logout
