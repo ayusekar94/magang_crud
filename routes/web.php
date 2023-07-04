@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('page-starter');
+});
+Route::get('/kegiatan', function () {
     return view('kegiatan');
 });
