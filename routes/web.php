@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\AutentikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use App\Http\Controllers\KegiatanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', '/auth');
+
 
 Route::get('/', function () {
     return view('page-starter');
@@ -21,3 +24,7 @@ Route::get('/kegiatan', [KegiatanController::class, 'index']);
 Route::post('/kegiatan', [KegiatanController::class, 'store']);
 Route::put('/kegiatan/{id}', [KegiatanController::class, 'update']);
 Route::delete('/kegiatan/{id}', [KegiatanController::class, 'destroy']);
+
+Route::resource('/auth', AutentikasiController::class);
+Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
+Route::post('/register', [AutentikasiController::class, 'register'])->name('register');
