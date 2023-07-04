@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Hash;
 
 class AutentikasiController extends Controller
 {
@@ -21,29 +23,33 @@ class AutentikasiController extends Controller
     }
 
     // Auth
-    public function autentikasi(Request $request){
+    public function store(Request $request){
         //jika username ada
-        $user = DB::table('users')->where('NIP', $request->NIP)->first();
+        $user = DB::table('karyawans')->where('NIP', $request->NIP)->first();
 
         //jika password benar
         if($user){
             if(Hash::check($request->password,$user->password)){
                 session([
                     'isLogin' => true,
-                    'role' => $request->role,
-                    'id' => $user->id,
-                    'username' => $user->username,
-                    'namaLengkap' => $user->namaLengkap,
-                    'jenisKelamin' => $user->jenisKelamin
+                    'NIP' => $user->NIP,
+                    'nama' => $user->nama,
+                    'divisi' => $user->divisi
                     ]);
                 // return redirect('/'.$request->role);
                 return redirect('/dashboard');
             }
             //jika password salah
-            return redirect('/')->with('error_password', 'Password Tidak Cocok');
+            return redirect('/b')->with('error_password', 'Password Tidak Cocok');
         }
         
         //jika username tidak ada
-        return redirect('/')->with('error_username', 'Username Tidak Ditemukan');
+        return redirect('/a')->with('error_username', 'Username Tidak Ditemukan');
+    }
+
+    // Logout
+    public function logout(){
+        session()->flush();
+        return redirect('/');
     }
 }

@@ -15,7 +15,7 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        return view('pages.obat',[
+        return view('Kegiatan.kegiatan',[
             'item' => DB::table('kegiatans')->paginate(10),
         ]); 
     }

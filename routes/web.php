@@ -16,3 +16,5 @@ use App\Http\Controllers\AutentikasiController;
 Route::redirect('/', '/auth');
 
 Route::resource('/auth', AutentikasiController::class);
+Route::get('/kegiatan', 'UserController@index')->name('user');
+Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
