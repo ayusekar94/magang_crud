@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('page-starter');
 });
-Route::get('/kegiatan', function () {
-    return view('kegiatan');
-});
+Route::get('/kegiatan', [KegiatanController::class, 'index']);
+Route::post('/kegiatan', [KegiatanController::class, 'store']);
+Route::put('/kegiatan/{id}', [KegiatanController::class, 'update']);
+Route::delete('/kegiatan/{id}', [KegiatanController::class, 'destroy']);

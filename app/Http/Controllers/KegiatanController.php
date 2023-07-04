@@ -15,9 +15,11 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        return view('pages.obat',[
-            'item' => DB::table('kegiatans')->paginate(10),
-        ]); 
+
+    	return view('pages.kegiatan', [
+            'kegiatan' => Kegiatan::get()
+            // 'kegiatan' => 'aaa'
+        ]);
     }
 
     /**
@@ -38,15 +40,16 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData=$request->validate([
-            'nama' => 'required',
-            'tgl' => 'required|min:10',
+            'name' => 'required',
+            'tgl' => 'required',
             'kegiatan' => 'required',
         ]);
         Kegiatan::create($validatedData); //untuk menyimpan data
         
         // toast('Registration has been successful','success');
-        return redirect()->intended('');
+        return redirect()->intended('/kegiatan');
     }
 
     /**
@@ -68,10 +71,9 @@ class KegiatanController extends Controller
      */
     public function edit($id)
     {
-        return view('',[
-            'title' => 'User - Edit Obat',
-            'item' => Kegiatan::find($id),
-        ]);
+        // return view('',[
+        //     'item' => Kegiatan::find($id),
+        // ]);
     }
 
     /**
@@ -84,14 +86,14 @@ class KegiatanController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData=$request->validate([
-            'nama' => 'required',
+            'name' => 'required',
             'tgl' => 'required',
             'kegiatan' => 'required',
         ]);
 
         // Menyimpan update
     	$user = Kegiatan::find($id);
-    	$user->nama = $validatedData['nama'];
+    	$user->name = $validatedData['name'];
         $user->tgl = $validatedData['tgl'];
         $user->kegiatan = $validatedData['kegiatan'];
     	$user->save();
@@ -110,6 +112,6 @@ class KegiatanController extends Controller
     {
         Kegiatan::destroy($id);
 
-    	return redirect("/obat"); 
+    	return redirect('/kegiatan'); 
     }
 }
