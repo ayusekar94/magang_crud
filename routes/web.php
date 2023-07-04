@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\AutentikasiController;
 use App\Http\Controllers\KegiatanController;
 
