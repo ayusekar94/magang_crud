@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutentikasiController;
+use App\Http\Controllers\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,10 @@ use App\Http\Controllers\AutentikasiController;
 */
 Route::redirect('/', '/auth');
 
+// Autentikasi
 Route::resource('/auth', AutentikasiController::class);
-Route::get('/kegiatan', 'UserController@index')->name('user');
 Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
 Route::post('/register', [AutentikasiController::class, 'register'])->name('register');
+
+// Kegiatan
+Route::resource('/kegiatan', KegiatanController::class);

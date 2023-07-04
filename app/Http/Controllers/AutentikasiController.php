@@ -43,14 +43,14 @@ class AutentikasiController extends Controller
                     'divisi' => $user->divisi
                     ]);
                 // return redirect('/'.$request->role);
-                return redirect('/dashboard');
+                return redirect('/kegiatan');
             }
             //jika password salah
-            return redirect('/b')->with('error_password', 'Password Tidak Cocok');
+            return redirect('/auth')->with('error_password', 'Password Tidak Cocok');
         }
         
         //jika username tidak ada
-        return redirect('/a')->with('error_username', 'Username Tidak Ditemukan');
+        return redirect('/auth')->with('error_username', 'Username Tidak Ditemukan');
     }
 
     public function register(Request $request){
