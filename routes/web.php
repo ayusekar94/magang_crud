@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutentikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', '/auth');
 
-Route::get('/', function () {
-    return view('page-starter');
-});
+Route::resource('/auth', AutentikasiController::class);
