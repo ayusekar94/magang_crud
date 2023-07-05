@@ -29,7 +29,7 @@
           <div class="card">
             <div class="card-header">
               <h4 class="card-title mb-0">Daftar Kegiatan</h4>
-              <button type="button" class="btn btn-primary w-sm ms-auto float-right" data-bs-toggle="modal" data-bs-target="#modalAdd">
+              <button type="button" class="btn btn-primary w-sm ms-auto float-end" data-bs-toggle="modal" data-bs-target="#modalAdd">
                 <i class="fas fa-folder-plus text-white-50"></i> Tambah </a>
               </button>
             </div>
