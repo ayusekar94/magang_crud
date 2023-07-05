@@ -21,7 +21,6 @@ class KaryawanSeeder extends Seeder
             'Nama' => 'Ony Novianti',
             'password' => bcrypt('12345'),
             'divisi' => 'Teknologi Informasi',
-            'karyawan_id' => 
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
             ]
