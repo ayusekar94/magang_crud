@@ -49,7 +49,7 @@
                         </button>
                         {{-- <a href="category/{{ $item->id }}/edit" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#editModal"> <i class="fas fa-edit"></i>
                         </a> --}} {{-- Delete  --}}
-                        <button class="badge bg-danger border-0 btn-sm" onclick="return confirm('apakah anda yakin ?')">
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('apakah anda yakin ?')">
                           <i class="fas fa-trash-alt"></i>
                         </button>
                     </td>

@@ -18,9 +18,11 @@ Route::redirect('/', '/auth');
 
 // Autentikasi
 Route::resource('/auth', AutentikasiController::class);
-Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
-Route::get('/logout-page', [AutentikasiController::class, 'logoutPage'])->name('logout-page');
 Route::post('/register', [AutentikasiController::class, 'register'])->name('register');
 
 // Kegiatan
-Route::resource('/kegiatan', KegiatanController::class);
+Route::group(['middleware' => 'login'], function () {
+    Route::resource('/kegiatan', KegiatanController::class);
+    Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
+    Route::get('/logout-page', [AutentikasiController::class, 'logoutPage'])->name('logout-page');
+});

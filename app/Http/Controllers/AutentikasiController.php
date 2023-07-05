@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Karyawan;
+use Illuminate\Support\Facades\Auth;
 
 class AutentikasiController extends Controller
 {
@@ -51,6 +52,12 @@ class AutentikasiController extends Controller
         
         //jika username tidak ada
         return redirect('/auth')->with('error_username', 'Username Tidak Ditemukan');
+        // $credentials = $request->only('NIP', 'password');
+        // if (Auth::attempt($credentials)) {
+        //     // Authentication passed...
+        //     return redirect('/kegiatan');
+        // }
+        // return Redirect::to("auth")->with('Username atau password tidak sesuai!');
     }
 
     public function register(Request $request){

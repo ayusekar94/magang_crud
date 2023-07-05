@@ -19,6 +19,10 @@ return new class extends Migration
             $table->date('tgl');
             $table->text('kegiatan');
             $table->timestamps();
+
+            # Relasi
+            $table->unsignedBigInteger('karyawan_nip');
+            $table->foreign('karyawan_nip')->references('nip')->on('karyawans')->onDelete('cascade');
         });
     }
 
