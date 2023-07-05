@@ -18,7 +18,9 @@ class KegiatanController extends Controller
 
     	return view('pages.kegiatan', [
             'kegiatan' => Kegiatan::get(),
-            'judul' => 'Halaman Kegiatan'
+            'judul' => 'Halaman Kegiatan',
+            'menu' => 'Kegiatan',
+            'sub_menu' => 'Daftar kegiatan'
             // 'kegiatan' => 'aaa'
         ]);
     }
