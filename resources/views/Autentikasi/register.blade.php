@@ -102,6 +102,10 @@
                                         <div class="mt-3 text-end">
                                             <input class="btn btn-primary w-sm waves-effect waves-light" type="submit" value="Register">
                                         </div>
+
+                                        <div class="mt-4 text-center">
+                                            <p class="text-muted mb-0">Already have an account ? <a href="/" class="fw-medium text-primary"> Login</a></p>
+                                        </div>
                                     </form>
                                 </div>
             
