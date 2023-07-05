@@ -52,7 +52,6 @@
                         <button class="badge bg-danger border-0 btn-sm" onclick="return confirm('apakah anda yakin ?')">
                           <i class="fas fa-trash-alt"></i>
                         </button>
-                      </form>
                     </td>
                   </tr> @endforeach </tbody>
               </table>
