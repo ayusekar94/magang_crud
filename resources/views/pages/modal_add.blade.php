@@ -10,6 +10,7 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Nama</label>
               <div class="col-sm-9">
+                <input type="hidden" name="karyawan_nip" class="form-control" value="{{ session()->get('NIP') }}"/>
                 <input type="text" name="name" class="form-control" /> @error('nama') <code>
                   {{ $message }}
                 </code> @enderror

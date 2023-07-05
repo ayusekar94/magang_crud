@@ -23,7 +23,7 @@ class KegiatanController extends Controller
     {
 
     	return view('pages.kegiatan', [
-            'kegiatan' => Kegiatan::get(),
+            'kegiatan' => Kegiatan::with('karyawan')->get(),
             'judul' => 'Halaman Kegiatan',
             'menu' => 'Kegiatan',
             'sub_menu' => 'Daftar kegiatan'
@@ -54,6 +54,7 @@ class KegiatanController extends Controller
             'name' => 'required',
             'tgl' => 'required',
             'kegiatan' => 'required',
+            'karyawan_nip' => 'required',
         ]);
         Kegiatan::create($validatedData); //untuk menyimpan data
         
@@ -98,6 +99,7 @@ class KegiatanController extends Controller
             'name' => 'required',
             'tgl' => 'required',
             'kegiatan' => 'required',
+            'karyawan_nip' => 'required',
         ]);
 
         // Menyimpan update

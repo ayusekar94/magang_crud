@@ -15,4 +15,10 @@ class Karyawan extends Model
         'password',
         'divisi'
     ];
+
+    # Karyawan has many kegiatans
+    public function kegiatans()
+    {
+        return $this->hasMany(Kegiatan::class);
+    }
 }

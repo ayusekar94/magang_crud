@@ -388,6 +388,8 @@
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        @include('pages.modal-control')
 
         <!-- JAVASCRIPT -->
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

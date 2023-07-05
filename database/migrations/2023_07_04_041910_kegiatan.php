@@ -22,7 +22,7 @@ return new class extends Migration
 
             # Relasi
             $table->unsignedBigInteger('karyawan_nip');
-            $table->foreign('karyawan_nip')->references('nip')->on('karyawans')->onDelete('cascade');
+            $table->foreign('karyawan_nip')->references('NIP')->on('karyawans')->onDelete('cascade');
         });
     }
 
