@@ -46,7 +46,7 @@ class AutentikasiController extends Controller
                 return redirect('/kegiatan');
             }
             //jika password salah
-            return redirect('/auth')->with('error_password', 'Password Tidak Cocok');
+            return redirect('/auth')->with('error_password', 'Password Tidak Sesuai');
         }
         
         //jika username tidak ada
@@ -71,6 +71,13 @@ class AutentikasiController extends Controller
     // Logout
     public function logout(){
         session()->flush();
-        return redirect('/');
+        return redirect('/logout-page');
+    }
+
+    // Buka Halaman Login
+    public function logoutPage(){
+        return view('Autentikasi.logout',[
+            'title' => 'Halaman Logout'
+        ]);
     }
 }

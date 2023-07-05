@@ -15,17 +15,12 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
 
     	return view('pages.kegiatan', [
-            'kegiatan' => Kegiatan::get()
+            'kegiatan' => Kegiatan::get(),
+            'judul' => 'Halaman Kegiatan'
             // 'kegiatan' => 'aaa'
         ]);
-=======
-        return view('Kegiatan.kegiatan',[
-            'item' => DB::table('kegiatans')->paginate(10),
-        ]); 
->>>>>>> 74d34d80ceafbcb3bb5af6fcf86465ce7fa2bf47
     }
 
     /**
@@ -105,7 +100,7 @@ class KegiatanController extends Controller
     	$user->save();
     	
         // toast('Your data has been saved!','success');
-    	return redirect(''); // untuk diarahkan kemana
+    	return redirect('/kegiatan'); // untuk diarahkan kemana
     }
 
     /**

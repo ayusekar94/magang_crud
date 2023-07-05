@@ -44,6 +44,20 @@
                                     <p class="text-muted">Sign in to continue to Activ.</p>
                                 </div>
                                 <div class="p-2 mt-4">
+                                    @if(session()->get('error_username'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-block-helper me-2"></i>
+                                        {{ session()->get('error_username') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
+                                    @if(session()->get('error_password'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-block-helper me-2"></i>
+                                        {{ session()->get('error_password') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
                                     <form method="POST" action="/auth"> @csrf
         
                                         <div class="mb-3">
@@ -88,7 +102,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center text-muted p-4">
-                            <p class="text-white-50">© <script>document.write(new Date().getFullYear())</script> Activ. by Kelompok 2 Magang</p>
+                            <p class="text-white-50">© <script>document.write(new Date().getFullYear())</script> Activ. by Kelompok Magang</p>
                         </div>
                     </div>
                 </div>

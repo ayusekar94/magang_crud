@@ -2,11 +2,11 @@
 <html lang="en">
 
     
-<!-- Mirrored from themesdesign.in/symox-laravel/layouts/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jul 2022 07:12:00 GMT -->
+<!-- Mirrored from themesdesign.in/Activ-laravel/layouts/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jul 2022 07:12:00 GMT -->
 <head>
         
         <meta charset="utf-8" />
-        <title>Log Out | Symox - Admin & Dashboard Template</title>
+        <title>{{ $title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -33,7 +33,7 @@
 
                         <div class="text-center mb-4">
                             <a href="index.html">
-                                <img src="assets/images/logo-sm.svg" alt="" height="22"> <span class="logo-txt">Symox</span>
+                                <img src="assets/images/logo-sm.svg" alt="" height="22"> <span class="logo-txt">Activ</span>
                             </a>
                        </div>
 
@@ -47,9 +47,9 @@
                                     </div>
                                     <div class="mt-4 pt-2">
                                         <h5>You are Logged Out</h5>
-                                        <p class="text-muted font-size-15">Thank you for using <span class="fw-semibold text-dark">Symox</span></p>
+                                        <p class="text-muted font-size-15">Thank you for using <span class="fw-semibold text-dark">Activ</span></p>
                                         <div class="mt-4">
-                                            <a href="auth-login.html" class="btn btn-primary w-100 waves-effect waves-light">Sign In</a>
+                                            <a href="/auth" class="btn btn-primary w-100 waves-effect waves-light">Sign In</a>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center text-muted p-4">
-                            <p class="text-white-50">© <script>document.write(new Date().getFullYear())</script> Symox. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                            <p class="text-white-50">© <script>document.write(new Date().getFullYear())</script> Activ. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                         </div>
                     </div>
                 </div>
@@ -81,5 +81,5 @@
 
     </body>
 
-<!-- Mirrored from themesdesign.in/symox-laravel/layouts/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jul 2022 07:12:00 GMT -->
+<!-- Mirrored from themesdesign.in/Activ-laravel/layouts/auth-logout.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Jul 2022 07:12:00 GMT -->
 </html>

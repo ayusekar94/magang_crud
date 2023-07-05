@@ -114,7 +114,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center text-muted p-4">
-                            <p class="text-white-50">© <script>document.write(new Date().getFullYear())</script> Activ. by Kelompok 2 Magang</p>
+                            <p class="text-white-50">© <script>document.write(new Date().getFullYear())</script> Activ. by Kelompok Magang</p>
                         </div>
                     </div>
                 </div>
