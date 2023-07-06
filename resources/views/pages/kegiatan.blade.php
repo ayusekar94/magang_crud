@@ -32,19 +32,21 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>Nama Karyawan</th>
+                    <th>Nama Kegiatan</th>
                     <th>Tanggal</th>
-                    <th>Kegiatan</th>
+                    <th>Deskripsi Kegiatan</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody> @foreach ($kegiatan as $item) <tr>
+                    <td>{{ $item->karyawan->nama }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->tgl}}</td>
                     <td>{{ $item->kegiatan}}</td>
                     <td>
                       <form action="/kegiatan/{{ $item->id }}" method="POST" class="d-inline"> @method('DELETE') @csrf {{-- Update  --}}
-                        <button type="button" value="{{ $item->id }}" class="btn btn-primary editbtn btn-sm open_modal" data-bs-toggle="modal" data-bs-target="#editModal" data-id={{ $item->id }} data-name="{{ $item->name }}" data-tgl="{{ $item->tgl }}" data-kegiatan="{{ $item->kegiatan }}">
+                        <button type="button" value="{{ $item->id }}" class="btn btn-primary editbtn btn-sm open_modal" data-bs-toggle="modal" data-bs-target="#modalEdit" data-id={{ $item->id }} data-name="{{ $item->name }}" data-tgl="{{ $item->tgl }}" data-kegiatan="{{ $item->kegiatan }}" data-karyawan_nip="{{ $item->karyawan_nip }}">
                           <i class="fas fa-edit"></i>
                         </button>
                         {{-- <a href="category/{{ $item->id }}/edit" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#editModal"> <i class="fas fa-edit"></i>

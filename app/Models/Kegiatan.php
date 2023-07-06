@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Kegiatan extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'tgl','kegiatan'];
+    protected $fillable = ['name', 'tgl','kegiatan','karyawan_nip'];
+
+    # Karyawan's kegiatan : Kegiatan dimiliki 1 karyawan
+    public function karyawan()
+    {
+        return $this->belongsTo(Karyawan::class, 'karyawan_nip', 'NIP');
+    }
 }

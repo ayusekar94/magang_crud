@@ -13,6 +13,7 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Nama</label>
             <div class="col-sm-9">
+              <input type="hidden" name="karyawan_nip" id="karyawan_nip">
               <input type="text" name="name" id="name" class="form-control" /> @error('name') <code>
                 {{ $message }}
               </code> @enderror

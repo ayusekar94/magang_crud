@@ -15,4 +15,12 @@ class Karyawan extends Model
         'password',
         'divisi'
     ];
+
+    protected $primaryKey = 'NIP';
+
+    # Karyawan has many kegiatans
+    public function kegiatans()
+    {
+        return $this->hasMany(Kegiatan::class);
+    }
 }

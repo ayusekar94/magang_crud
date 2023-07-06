@@ -44,6 +44,20 @@
                                     <p class="text-muted">Sign in to continue to Activ.</p>
                                 </div>
                                 <div class="p-2 mt-4">
+                                    @if(session()->get('registrasi_success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-check-all me-2"></i>
+                                        {{ session()->get('registrasi_success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
+                                    @if(session()->get('delete_success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-check-all me-2"></i>
+                                        {{ session()->get('delete_success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
                                     @if(session()->get('error_username'))
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <i class="mdi mdi-block-helper me-2"></i>
