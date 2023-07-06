@@ -37,7 +37,7 @@
           </div> --}}
           <div class="form-group mb-2">
               <label class="form-label">Nama</label>
-              <div class="col-sm-9">
+              <div class="col-sm-12">
                 <input type="hidden" name="karyawan_nip" class="form-control" value="{{ session()->get('NIP') }}"/>
                 <input type="text" name="name" placeholder="Nama Lengkap" class="form-control" /> @error('nama') <code>
                   {{ $message }}
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group mb-2">
               <label class="col-sm-3 col-form-label">Tanggal</label>
-              <div class="col-sm-9">
+              <div class="col-sm-12">
                 <input type="date" name="tgl" class="form-control" /> @error('tgl') <code>
                   {{ $message }}
                 </code> @enderror
@@ -54,7 +54,7 @@
             </div>
             <div class="form-group mb-2">
               <label class="col-sm-3 col-form-label">Kegiatan</label>
-              <div class="col-sm-9">
+              <div class="col-sm-12">
                 <input type="text" name="kegiatan" class="form-control" /> @error('kegiatan') <code>
                   {{ $message }}
                 </code> @enderror
