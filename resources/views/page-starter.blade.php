@@ -76,7 +76,9 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end pt-0">
                                 <a class="dropdown-item" href="contacts-profile.html"><i class='bx bx-user-circle text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">My Account</span></a>
-                                <a class="dropdown-item" href="/delete-account"><i class='bx bx-user-circle text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">Request Delete Account</span></a>
+                                <form action="/auth/{{ session()->get('NIP') }}" method="POST" class="d-inline"> @method('DELETE') @csrf
+                                    <button type="submit" class="dropdown-item" href="/auth"><i class='bx bx-user-x text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">Delete Account</span></button>
+                                </form>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout"><i class='bx bx-log-out text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">Logout</span></a>
                             </div>
@@ -197,6 +199,9 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end pt-0">
                                 <a class="dropdown-item" href="contacts-profile.html"><i class='bx bx-user-circle text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">My Account</span></a>
+                                <form action="/auth/{{ session()->get('NIP') }}" method="POST" class="d-inline"> @method('DELETE') @csrf
+                                    <button onclick="return confirm('apakah anda yakin ?')" class="dropdown-item" href="/auth"><i class='bx bx-user-x text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">Delete Account</span></button>
+                                </form>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout"><i class='bx bx-log-out text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">Logout</span></a>
                             </div>

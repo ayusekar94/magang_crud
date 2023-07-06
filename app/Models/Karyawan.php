@@ -16,6 +16,8 @@ class Karyawan extends Model
         'divisi'
     ];
 
+    protected $primaryKey = 'NIP';
+
     # Karyawan has many kegiatans
     public function kegiatans()
     {

@@ -72,7 +72,7 @@ class AutentikasiController extends Controller
         Karyawan::create($validatedData); //untuk menyimpan data
 
         // toast('Registration has been successful','success');
-        return redirect()->intended('/sukses');
+        return redirect('/auth')->with('registrasi_success','Selamat Anda berhasil melakukan registrasi! Sekarang Anda bisa login menggunakan akun Anda');
     }
 
     // Logout
@@ -86,5 +86,13 @@ class AutentikasiController extends Controller
         return view('Autentikasi.logout',[
             'title' => 'Halaman Logout'
         ]);
+    }
+
+    // Hapus Akun
+    public function destroy($id)
+    {
+        Karyawan::destroy($id);
+
+    	return redirect('/auth')->with('delete_success','Akun Anda Berhasil Dihapus. Terima kasih telah menggunakan layanan kami'); 
     }
 }
