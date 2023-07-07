@@ -55,7 +55,7 @@
                     <td>{{ mb_strimwidth($item->kegiatan, 0, 60, "..."); }}</td>
                     <td>
                       <form action="/kegiatan/{{ $item->id }}" method="POST" class="d-inline"> @method('DELETE') @csrf {{-- Update  --}}
-                        <button type="button" value="{{ $item->id }}" class="btn btn-primary editbtn btn-sm open_modal" data-bs-toggle="modal" data-bs-target="#modalEdit" data-id={{ $item->id }} data-name="{{ $item->name }}" data-tgl="{{ $item->tgl }}" data-kegiatan="{{ $item->kegiatan }}" data-karyawan_nip="{{ $item->karyawan_nip }}" data-gambar="{{ $item->gambar }}">
+                        <button type="button" value="{{ $item->id }}" class="btn btn-primary editbtn btn-sm open_modal" data-bs-toggle="modal" data-bs-target="#modalEdit" data-id={{ $item->id }} data-name="{{ $item->name }}" data-tgl="{{ $item->tgl }}" data-kegiatan="{{ $item->kegiatan }}" data-karyawan_nip="{{ $item->karyawan_nip }}" data-gambar="{{ $item->image }}">
                           <i class="fas fa-edit"></i>
                         </button>
                         {{-- <a href="category/{{ $item->id }}/edit" class="badge bg-info" data-bs-toggle="modal" data-bs-target="#editModal"> <i class="fas fa-edit"></i>

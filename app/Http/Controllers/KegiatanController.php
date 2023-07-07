@@ -111,29 +111,32 @@ class KegiatanController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData=$request->validate([
-            'name' => 'required',
-            'tgl' => 'required',
-            'kegiatan' => 'required',
-            'karyawan_nip' => 'required',
+            'name-edit' => 'required',
+            'tgl-edit' => 'required',
+            'kegiatan-edit' => 'required',
+            'karyawan_nip-edit' => 'required',
         ]);
 
-        $kegiatans= kegiatan::find($id);
-        if($request->hasFile('image')){
+        $kegiatans= Kegiatan::find($id);
+
+        if($request->hasFile('image-edit')){
             $request->validate([
-                'image' => 'required|image|mimes:png,jpg|max:2040'
+                'image-edit' => 'required|image|mimes:png,jpg|max:2040'
             ]);
         
-        $image = $request->image;
-        $slug = Str::slug($image->getClientOriginalName());
-        $new_image = time() .'_'. $slug;
-        $image->move('uploads/kegiatan/', $new_image);
-        $kegiatans->image = 'uploads/kegiatan/'.$new_image;
+            $image = $request->file('image-edit');
+            $slug = Str::slug($image->getClientOriginalName());
+            $new_image = time() .'_'. $slug;
+            $image->move('uploads/kegiatan/', $new_image);
+            $kegiatans->image = 'uploads/kegiatan/'.$new_image;
+            // dd($kegiatan->image);
         }
 
         
-        $kegiatans->name= $request->name;
-        $kegiatans->tgl= $request->tgl;
-        $kegiatans->kegiatan= $request->kegiatan;
+        $kegiatans->name= $validatedData['name-edit'];
+        $kegiatans->tgl= $validatedData['tgl-edit'];
+        $kegiatans->kegiatan= $validatedData['kegiatan-edit'];
+        $kegiatans->karyawan_nip= $validatedData['karyawan_nip-edit'];
         $kegiatans->save();
     	
         // toast('Your data has been saved!','success');
