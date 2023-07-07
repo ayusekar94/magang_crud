@@ -62,17 +62,19 @@ class KegiatanController extends Controller
         $slug = ($image->getClientOriginalName());
         $new_image = time() .'_'. $slug;
         $image->move('uploads/kegiatan/' ,$new_image);
-        
-       
-        $kegiatan = new Kegiatan();
-        $kegiatan->image = 'uploads/kegiatan/'.$new_image;
-        $kegiatan->name= $request->name;
-        $kegiatan->tgl= $request->tgl;
-        $kegiatan->kegiatan= $request->kegiatan;
-        $kegiatan->save();
+        // dd($request->image);
+        $validatedData['image'] = 'uploads/kegiatan/'.$new_image;
+        Kegiatan::create($validatedData); //untuk menyimpan data
+        // $kegiatan = new Kegiatan();
+        // $kegiatan->image = 'uploads/kegiatan/'.$new_image;
+        // $kegiatan->name= $request->name;
+        // $kegiatan->tgl= $request->tgl;
+        // $kegiatan->kegiatan= $request->kegiatan;
+        // $kegiatan->karyawan_nip= $request->karyawan_nip;
+        // $kegiatan->save();
         
         // toast('Registration has been successful','success');
-        return redirect()->intended('/kegiatan');
+        return redirect('/kegiatan');
     }
 
     /**

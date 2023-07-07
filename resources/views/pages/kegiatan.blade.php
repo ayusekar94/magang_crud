@@ -63,6 +63,7 @@
                         <button class="btn btn-danger btn-sm" onclick="return confirm('apakah anda yakin ?')">
                           <i class="fas fa-trash-alt"></i>
                         </button>
+                      </form>
                     </td>
                   </tr> @endforeach </tbody>
               </table>
