@@ -85,7 +85,7 @@
                                 <div class="mb-3 row">
                                     <label for="example-email-input" class="col-md-2 col-form-label">Departemen</label>
                                     <div class="col-md-10">
-                                        <select class="form-select" name="divisi" value="{{ $karyawan->departemen }}">
+                                        <select class="form-select" name="departemen" value="{{ $karyawan->departemen }}">
                                             <option value="Security & Tata Kelola" selected>Security & Tata Kelola</option>
                                         </select>
                                     </div>

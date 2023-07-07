@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kegiatan;
 use Illuminate\Support\Str;
-use File;
+use Illuminate\Support\Facades\File;
 
 class KegiatanController extends Controller
 {
