@@ -164,6 +164,6 @@ class KegiatanController extends Controller
         }
         Kegiatan::destroy($id);
 
-    	return redirect('/kegiatan'); 
+    	return redirect('/kegiatan');
     }
 }
