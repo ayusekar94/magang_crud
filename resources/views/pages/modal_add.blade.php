@@ -9,6 +9,12 @@
         <form action="/kegiatan" method="post" enctype="multipart/form-data"> @csrf 
           <div class="modal-body">
           <div class="form-group mb-2">
+            <label class="form-label">Pratinjau Gambar</label>
+            <div class="col-sm-12 col-offset-sm-2 d-flex justify-content-center">
+              <img id="preview-image-before-upload" src="" alt="preview image" style="max-height: 120px;">
+            </div>
+          </div>
+          <div class="form-group mb-2">
               <label class="form-label">Nama Kegiatan</label>
               <div class="col-sm-12">
                 <input type="hidden" name="karyawan_nip" class="form-control" value="{{ session()->get('NIP') }}"/>
