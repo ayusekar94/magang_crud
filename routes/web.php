@@ -26,5 +26,7 @@ Route::group(['middleware' => 'login'], function () {
     Route::resource('/kegiatan', KegiatanController::class);
     Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
     Route::get('/logout-page', [AutentikasiController::class, 'logoutPage'])->name('logout-page');
-    Route::resource('/karyawan', KaryawanController::class);
+    // Route::post('/profile', [AutentikasiController::class, 'update'])->name('edit-profile');
+    Route::get('/profile', [AutentikasiController::class, 'uindex']);
+    Route::post('/karyawan', [KaryawanController::class, 'update']);
 });

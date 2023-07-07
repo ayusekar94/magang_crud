@@ -198,7 +198,7 @@
                                 alt="Header Avatar">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end pt-0">
-                                <a class="dropdown-item" href="/karyawan"><i class='bx bx-user-circle text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">My Account</span></a>
+                                <a class="dropdown-item" href="/profile"><i class='bx bx-user-circle text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">My Account</span></a>
                                 <form action="/auth/{{ session()->get('NIP') }}" method="POST" class="d-inline"> @method('DELETE') @csrf
                                     <button onclick="return confirm('apakah anda yakin ?')" class="dropdown-item" href="/karyawan/destroy"><i class='bx bx-user-x text-muted font-size-18 align-middle me-1'></i> <span class="align-middle">Delete Account</span></button>
                                 </form>

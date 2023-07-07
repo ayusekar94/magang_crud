@@ -62,6 +62,13 @@ class AutentikasiController extends Controller
         // return Redirect::to("auth")->with('Username atau password tidak sesuai!');
     }
 
+    public function uindex(){
+        return view('Autentikasi.my-account',[
+            'karyawan' => Karyawan::where('NIP', session('NIP'))->first(),
+            'judul' => 'Edit Profile',
+        ]);
+    }
+
     public function register(Request $request){
         // dd($request);
         $validatedData=$request->validate([
@@ -78,6 +85,28 @@ class AutentikasiController extends Controller
 
         // toast('Registration has been successful','success');
         return redirect('/auth')->with('registrasi_success','Selamat Anda berhasil melakukan registrasi! Sekarang Anda bisa login menggunakan akun Anda');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated=$request->validate([
+            'NIP' => 'required',
+            'nama' => 'required',
+            'divisi' => 'required',
+            'jabatan' => 'required',
+            'departemen' => 'required',
+        ]);
+
+    	$karyawan = Karyawan::where('NIP', session('NIP'))->first();
+    	$karyawan->NIP = $request->NIP;
+        $karyawan->nama = $request->nama;
+    	$karyawan->divisi = $request->divisi;
+    	$karyawan->jabatan = $request->jabatan;
+        $karyawan->departemen = $request->departemen;
+    	
+    	$karyawan->update();
+
+        return redirect('/profile');
     }
 
     // Logout
