@@ -19,7 +19,7 @@ class KegiatanSeeder extends Seeder
             [ // ADMIN
             'karyawan_nip' => '190282637182',
             'name' => 'Bakti Sosial',
-            'gambar' => ' ',
+            'image' => ' ',
             'tgl' => '2023-07-18',
             'kegiatan' => 'Kegiatan Bakti Sosial Ke Panti Asuhan Kasih Bunda yang diadakan secara rutin setiap bulan',
             'created_at' => date('Y-m-d H:i:s'),

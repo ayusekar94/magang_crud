@@ -20,9 +20,9 @@
             <div class="form-group mb-2">
               <label class="col-sm-3 col-form-label">Image</label>
               <div class="col-sm-12">
-                <input type="file" name="gambar" class="form-control" id="formFile"
-                accept="gambar/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                  @error('gambar')
+                <input type="file" name="image" class="form-control" id="formFile"
+                accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                  @error('image')
                     <div class="alert alert-danger mt-2">
                         {{ $message }}
                     </div>
