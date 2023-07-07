@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\AutentikasiController;
+use App\Http\Controllers\KaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ Route::group(['middleware' => 'login'], function () {
     Route::resource('/kegiatan', KegiatanController::class);
     Route::get('/logout', [AutentikasiController::class, 'logout'])->name('logout');
     Route::get('/logout-page', [AutentikasiController::class, 'logoutPage'])->name('logout-page');
+    Route::resource('/karyawan', KaryawanController::class);
 });

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('divisi');
             $table->string('password');
+            $table->string('jabatan');
+            $table->string('departemen');
             $table->timestamps();
         });
     }

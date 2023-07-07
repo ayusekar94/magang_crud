@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +41,9 @@ class AutentikasiController extends Controller
                     'isLogin' => true,
                     'NIP' => $user->NIP,
                     'nama' => $user->nama,
-                    'divisi' => $user->divisi
+                    'divisi' => $user->divisi,
+                    'jabatan' => $user->jabatan,
+                    'departemen' => $user->departemen
                     ]);
                 // return redirect('/'.$request->role);
                 return redirect('/kegiatan');
@@ -65,7 +67,9 @@ class AutentikasiController extends Controller
             'NIP' => 'required',
             'nama' => 'required|min:5',
             'password' => 'required|min:5|confirmed',
-            'divisi' => 'required'
+            'divisi' => 'required',
+            'jabatan' => 'required',
+            'departemen' => 'required'
         ]);
         $validatedData['password']=bcrypt($validatedData['password']);
 

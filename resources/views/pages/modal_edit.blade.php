@@ -10,27 +10,39 @@
         @csrf 
         @method('PUT')
         <div class="modal-body">
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label">Nama</label>
-            <div class="col-sm-9">
-              <input type="hidden" name="karyawan_nip" id="karyawan_nip">
+          <div class="form-group mb-2">
+            <label class="form-label">Nama Kegiatan</label>
+            <div class="col-sm-12">
+              <input type="hidden" name="karyawan_nip"/>
               <input type="text" name="name" id="name" class="form-control" /> @error('name') <code>
                 {{ $message }}
               </code> @enderror
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group mb-2">
+            <label class="col-sm-3 col-form-label">Image</label>
+            <div class="col-sm-12">
+              <input type="file" name="gambar" class="form-control" id="formFile"
+              accept="gambar/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                @error('gambar')
+                  <div class="alert alert-danger mt-2">
+                      {{ $message }}
+                  </div>
+                @enderror 
+            </div>
+          </div>
+          <div class="form-group mb-2">
             <label class="col-sm-3 col-form-label">Tanggal</label>
-            <div class="col-sm-9">
-              <input type="date" name="tgl" class="form-control" id="tgl" /> @error('tgl') <code>
+            <div class="col-sm-12">
+              <input type="date" name="tgl" class="form-control"id="tgl"/> @error('tgl') <code>
                 {{ $message }}
               </code> @enderror
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label">Kegiatan</label>
-            <div class="col-sm-9">
-              <input type="text" name="kegiatan" class="form-control" id="kegiatan" /> @error('kegiatan') <code>
+          <div class="form-group mb-2">
+            <label class="col-sm-5 col-form-label">Deskripsi Kegiatan</label>
+            <div class="col-sm-12">
+              <input type="text" name="kegiatan" class="form-control" id="kegiatan"/> @error('kegiatan') <code>
                 {{ $message }}
               </code> @enderror
             </div>

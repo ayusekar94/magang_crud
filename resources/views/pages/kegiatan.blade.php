@@ -34,6 +34,7 @@
                   <tr>
                     <th>Nama Karyawan</th>
                     <th>Nama Kegiatan</th>
+                    <th>Image</th>
                     <th>Tanggal</th>
                     <th>Deskripsi Kegiatan</th>
                     <th>Action</th>
@@ -42,8 +43,16 @@
                 <tbody> @foreach ($kegiatan as $item) <tr>
                     <td>{{ $item->karyawan->nama }}</td>
                     <td>{{ $item->name }}</td>
+                    <td>
+                      @if ($item->gambar)
+                        <img width="60px" height="60px" src="{{ asset($item->gambar) }}" >
+                      @else
+                        <p>tidak ada gambar</p>
+                                                
+                      @endif
+                    </td>
                     <td>{{ $item->tgl}}</td>
-                    <td>{{ $item->kegiatan}}</td>
+                    <td>{{ mb_strimwidth($item->kegiatan, 0, 60, "..."); }}</td>
                     <td>
                       <form action="/kegiatan/{{ $item->id }}" method="POST" class="d-inline"> @method('DELETE') @csrf {{-- Update  --}}
                         <button type="button" value="{{ $item->id }}" class="btn btn-primary editbtn btn-sm open_modal" data-bs-toggle="modal" data-bs-target="#modalEdit" data-id={{ $item->id }} data-name="{{ $item->name }}" data-tgl="{{ $item->tgl }}" data-kegiatan="{{ $item->kegiatan }}" data-karyawan_nip="{{ $item->karyawan_nip }}">

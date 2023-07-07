@@ -9,13 +9,26 @@
         <form action="/kegiatan" method="post" enctype="multipart/form-data"> @csrf 
           <div class="modal-body">
           <div class="form-group mb-2">
-              <label class="form-label">Nama</label>
+              <label class="form-label">Nama Kegiatan</label>
               <div class="col-sm-12">
                 <input type="hidden" name="karyawan_nip" class="form-control" value="{{ session()->get('NIP') }}"/>
-                <input type="text" name="name" placeholder="Nama Lengkap" class="form-control" /> @error('nama') <code>
+                <input type="text" name="name" placeholder="Nama Kegiatan" class="form-control" /> @error('nama') <code>
                   {{ $message }}
                 </code> @enderror
               </div>
+            </div>
+            <div class="form-group mb-2">
+              <label class="col-sm-3 col-form-label">Image</label>
+              <div class="col-sm-12">
+                <input type="file" name="gambar" class="form-control" id="formFile"
+                accept="gambar/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                  @error('gambar')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
+                    </div>
+                  @enderror 
+              </div>
+              {{-- <div class="mt-3"><img src="{{ asset($kegiatan->gambar) }}" id="output" width="400"></div> --}}
             </div>
             <div class="form-group mb-2">
               <label class="col-sm-3 col-form-label">Tanggal</label>
@@ -26,9 +39,9 @@
               </div>
             </div>
             <div class="form-group mb-2">
-              <label class="col-sm-3 col-form-label">Deskripsi Kegiatan</label>
-              <div class="col-sm-9">
-                <input type="text" name="kegiatan" class="form-control" /> @error('kegiatan') <code>
+              <label class="col-sm-5 col-form-label">Deskripsi Kegiatan</label>
+              <div class="col-sm-12">
+                <input type="text" name="kegiatan" class="form-control" placeholder="Deskripsi Kegiatan"/> @error('kegiatan') <code>
                   {{ $message }}
                 </code> @enderror
               </div>

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Kegiatan;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class KegiatanController extends Controller
 {
@@ -56,7 +55,20 @@ class KegiatanController extends Controller
             'kegiatan' => 'required',
             'karyawan_nip' => 'required',
         ]);
-        Kegiatan::create($validatedData); //untuk menyimpan data
+
+        //upload image 
+        $image = $request->image; 
+        $slug = ($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/kegiatan/' ,$new_image);
+        
+       
+        $kegiatan = new Kegiatan();
+        $kegiatan->image = 'uploads/kegiatan/'.$new_image;
+        $kegiatan->name= $request->name;
+        $kegiatan->tgl= $request->tgl;
+        $kegiatan->kegiatan= $request->kegiatan;
+        $kegiatan->save();
         
         // toast('Registration has been successful','success');
         return redirect()->intended('/kegiatan');
@@ -102,12 +114,24 @@ class KegiatanController extends Controller
             'karyawan_nip' => 'required',
         ]);
 
-        // Menyimpan update
-    	$user = Kegiatan::find($id);
-    	$user->name = $validatedData['name'];
-        $user->tgl = $validatedData['tgl'];
-        $user->kegiatan = $validatedData['kegiatan'];
-    	$user->save();
+        $kegiatans= kegiatan::find($id);
+        if($request->hasFile('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg|max:2040'
+            ]);
+        
+        $image = $request->image;
+        $slug = Str::slug($image->getClientOriginalName());
+        $new_image = time() .'_'. $slug;
+        $image->move('uploads/kegiatan/', $new_image);
+        $kegiatans->image = 'uploads/kegiatan/'.$new_image;
+        }
+
+        
+        $kegiatans->name= $request->name;
+        $kegiatans->tgl= $request->tgl;
+        $kegiatans->kegiatan= $request->kegiatan;
+        $kegiatans->save();
     	
         // toast('Your data has been saved!','success');
     	return redirect('/kegiatan'); // untuk diarahkan kemana

@@ -13,7 +13,9 @@ class Karyawan extends Model
         'NIP',
         'nama',
         'password',
-        'divisi'
+        'divisi',
+        'jabatan',
+        'departemen'
     ];
 
     protected $primaryKey = 'NIP';

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kegiatan extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'tgl','kegiatan','karyawan_nip'];
+    protected $fillable = ['name', 'tgl','gambar', 'kegiatan','karyawan_nip'];
 
     # Karyawan's kegiatan : Kegiatan dimiliki 1 karyawan
     public function karyawan()
