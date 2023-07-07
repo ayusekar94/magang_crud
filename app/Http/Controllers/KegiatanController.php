@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kegiatan;
 use Illuminate\Support\Str;
+use File;
 
 class KegiatanController extends Controller
 {
@@ -60,7 +61,7 @@ class KegiatanController extends Controller
         //upload image 
         $image = $request->image; 
         $slug = ($image->getClientOriginalName());
-        $new_image = time() .'_'. $slug;
+        $new_image = time() .'_'. $slug.'.' . $image->getClientOriginalExtension();
         $image->move('uploads/kegiatan/' ,$new_image);
         // dd($request->image);
         $validatedData['image'] = 'uploads/kegiatan/'.$new_image;
@@ -123,10 +124,15 @@ class KegiatanController extends Controller
             $request->validate([
                 'image-edit' => 'required|image|mimes:png,jpg|max:2040'
             ]);
+
+            // Detele gbr lama
+            if(File::exists($kegiatans->image)) {
+                File::delete($kegiatans->image);
+            }
         
             $image = $request->file('image-edit');
             $slug = Str::slug($image->getClientOriginalName());
-            $new_image = time() .'_'. $slug;
+            $new_image = time() .'_'. $slug.'.' . $image->getClientOriginalExtension();;
             $image->move('uploads/kegiatan/', $new_image);
             $kegiatans->image = 'uploads/kegiatan/'.$new_image;
             // dd($kegiatan->image);
@@ -151,6 +157,11 @@ class KegiatanController extends Controller
      */
     public function destroy($id)
     {
+        $kegiatans= Kegiatan::find($id);
+        $image_path =$kegiatans->image;  // Value is not URL but directory file paths
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
         Kegiatan::destroy($id);
 
     	return redirect('/kegiatan'); 
