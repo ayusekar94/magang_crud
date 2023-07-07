@@ -44,8 +44,8 @@
                     <td>{{ $item->karyawan->nama }}</td>
                     <td>{{ $item->name }}</td>
                     <td>
-                      @if ($item->gambar)
-                        <img width="60px" height="60px" src="{{ asset($item->gambar) }}" >
+                      @if ($item->image)
+                        <img width="60px" height="60px" src="{{ asset($item->image) }}" >
                       @else
                         <p>tidak ada gambar</p>
                                                 

@@ -54,6 +54,7 @@ class KegiatanController extends Controller
             'tgl' => 'required',
             'kegiatan' => 'required',
             'karyawan_nip' => 'required',
+            'image' => 'required|image|mimes:png,jpg|max:2040'
         ]);
 
         //upload image 

@@ -63,6 +63,7 @@ class AutentikasiController extends Controller
     }
 
     public function register(Request $request){
+        // dd($request);
         $validatedData=$request->validate([
             'NIP' => 'required',
             'nama' => 'required|min:5',
