@@ -11,6 +11,13 @@
         @method('PUT')
         <div class="modal-body">
           <div class="form-group mb-2">
+            <label class="form-label">Pratinjau Gambar</label>
+            <div class="col-sm-12 col-offset-sm-2 d-flex justify-content-center">
+              <img id="preview-image-before-upload" src=""
+                      alt="preview image" style="max-height: 120px;">
+            </div>
+          </div>
+          <div class="form-group mb-2 mt-3">
             <label class="form-label">Nama Kegiatan</label>
             <div class="col-sm-12">
               <input type="hidden" name="karyawan_nip"/>
@@ -20,10 +27,9 @@
             </div>
           </div>
           <div class="form-group mb-2">
-            <label class="col-sm-3 col-form-label">Image</label>
+            <label class="col-sm-3 col-form-label">Gambar</label>
             <div class="col-sm-12">
-              <input type="file" name="gambar" class="form-control" id="formFile"
-              accept="gambar/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+              <input type="file" name="gambar" class="form-control" id="formFile" accept="gambar/*">
                 @error('gambar')
                   <div class="alert alert-danger mt-2">
                       {{ $message }}
